@@ -22,10 +22,20 @@
 //     }
 //   }
 
+
 function adicionar() {
 //recuperar valores: nome do produto; quantidade; valor
-// calcular o preço subtotal por produto
-//atualizar o total-
+
+let produto = document.getElementById('produto').value; //usamos o value, para obter o valor escolhido
+let quantidade = document.getElementById('quantidade');
+let nomeProduto = produto.split('-')[0]; //recurso split separa strings em arrays. Separador nesse caso é o hífen
+let valorUnit = produto.split('R$')[1]; 
+
+alert(nomeProduto);
+alert(valorUnit);
+alert(produto); 
+alert(quantidade.value); //usamos o value, para obter o valor escolhido
+
 
 }
 
