@@ -22,7 +22,13 @@
 //     }
 //   }
 
+
+//variável total criada fora da função para evitar que ela receba o valor de 0 toda vida que o botão adicionar seja clicado
 let total = 0;  
+//fazer que a página inicie com os campos limpos para serem adicionados
+document.getElementById('lista-produtos').innerHTML = '';
+document.getElementById('valor-total').innerHTML = `R$ ${0}`;
+
 function adicionar() {
 //recuperar valores: nome do produto; quantidade; valor
 
@@ -50,6 +56,9 @@ carrinho.innerHTML += `<section class="carrinho__produtos__produto"> <span class
 //atualizar o total 
 total+=subTotal;
 console.log(total)
+let campoTotal = document.getElementById('valor-total');
+campoTotal.textContent = `R$ ${total}`
+document.getElementById('quantidade').value = '';
 }
 
 
