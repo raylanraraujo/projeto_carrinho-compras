@@ -36,7 +36,15 @@ alert(valorUnit);
 alert(produto); 
 alert(quantidade.value); //usamos o value, para obter o valor escolhido
 
+  
+// calcular o preço subtotal por produto
+let subTotal = valorUnit * quantidade.value;
+console.log(subTotal)
 
+//atualizar o total
+let total = 0;  
+total+=subTotal
+console.log(total)
 }
 
 
