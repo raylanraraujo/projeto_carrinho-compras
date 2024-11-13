@@ -24,10 +24,9 @@
 
 
 //variável total criada fora da função para evitar que ela receba o valor de 0 toda vida que o botão adicionar seja clicado
-let total = 0;  
-//fazer que a página inicie com os campos limpos para serem adicionados
-document.getElementById('lista-produtos').innerHTML = '';
-document.getElementById('valor-total').innerHTML = `R$ ${0}`;
+let total;  
+//inicia a página chamando a função limpar
+limpar();
 
 function adicionar() {
 //recuperar valores: nome do produto; quantidade; valor
@@ -63,5 +62,7 @@ document.getElementById('quantidade').value = '';
 
 
 function limpar() {
-    
+    document.getElementById('lista-produtos').innerHTML = '';
+    document.getElementById('valor-total').innerHTML = `R$ ${0}`;
+    total = 0;
 }
