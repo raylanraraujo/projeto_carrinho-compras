@@ -1,48 +1,27 @@
-// let quantidade = parseInt(document.getElementById('quantidade').value);
-
-// function adicionar() {
-//     console.log(quantidade);
-// }
-
-// function adicionar() {
-//     let quantidadeElement = document.getElementById('quantidade');
-//     let quantidadeString = quantidadeElement.value;
-  
-//     if (quantidadeString === '') {
-//       console.error('O campo quantidade está vazio.');
-//     } else {
-//       let quantidade = parseInt(quantidadeString);
-//       if (isNaN(quantidade)) {
-//         console.error('O valor informado não é um número válido.');
-//       } else if (quantidade == 0){
-//         alert('É preciso inserir uma quantidade válida');
-//       } else {
-//         console.log(`A quantidade escolhida foi: ${quantidade}`);
-//       }
-//     }
-//   }
-
-
 //variável total criada fora da função para evitar que ela receba o valor de 0 toda vida que o botão adicionar seja clicado
 let total;  
-//inicia a página chamando a função limpar
-limpar();
+
+limpar(); //inicia a página chamando a função limpar
+
 
 function adicionar() {
 //recuperar valores: nome do produto; quantidade; valor
-
 let produto = document.getElementById('produto').value; //usamos o value, para obter o valor escolhido
 let quantidade = document.getElementById('quantidade').value;
-let nomeProduto = produto.split('-')[0]; //recurso split separa strings em arrays. Separador nesse caso é o hífen
-let valorUnit = produto.split('R$')[1]; 
-
-/*
-alert(nomeProduto);
-alert(valorUnit);
-alert(produto); 
-alert(quantidade.value); //usamos o value, para obter o valor escolhido
-*/
+let nomeProduto = produto.split('-')[0]; //recurso split separa strings em arrays do value de option. 
+let valorUnit = produto.split('R$')[1]; //Separador nesse caso é o R$ da propriedade value
   
+//validação para que só consiga adicionar produtos selecionados e uma quantidade válida
+if (nomeProduto == 'Selecione seu produto'){
+    alert('Selecione um produto antes de adicionar')
+    return;
+}
+if (quantidade == '' || quantidade <= 0){
+    alert('Adicione uma quantidade válida antes de adicionar')
+    return;
+}
+   
+
 // calcular o preço subtotal por produto
 let subTotal = valorUnit * quantidade;
 
@@ -58,6 +37,7 @@ console.log(total)
 let campoTotal = document.getElementById('valor-total');
 campoTotal.textContent = `R$ ${total}`
 document.getElementById('quantidade').value = '';
+document.getElementById('produto').value = 'Selecione seu produto';
 }
 
 
